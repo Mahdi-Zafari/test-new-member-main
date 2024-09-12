@@ -154,11 +154,35 @@ class User extends Model {
     }
 
     async register(): Promise<boolean> {
-        //
+        try {
+            const response = await axios.post(`${appUrl}/register`, {
+                name: this.name,
+                email: this.email,
+                password: this.password,
+                gender: this.gender,
+                birthday: this.birthday,
+                maritalStatus: this.maritalStatus,
+                profession: this.profession,
+                //
+            });
+            return response.status === 201;
+        } catch (error) {
+            console.error('Registration error:', error);
+            return false;
+        }
     }
 
     async login(): Promise<boolean> {
-        //
+        try {
+            const response = await axios.post(`${appUrl}/login`, {
+                email: this.email,
+                password: this.password,
+            });
+            return response.status === 200;
+        } catch (error) {
+            console.error('Login error:', error);
+            return false;
+        }
     }
 }
 
