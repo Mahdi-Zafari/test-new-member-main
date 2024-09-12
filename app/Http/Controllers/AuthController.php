@@ -24,15 +24,52 @@ class AuthController extends Controller
         return UserResource::make($request?->user() ?? new User());
     }
 
-    public function register(Request $request): bool
+    public function register(Request $request): JsonResponse
     {
-        // 
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+            'gender' => 'required|string',
+            'birthday' => 'required|date',
+            'maritalStatus' => 'required|string',
+            'profession' => 'required|string',
+            //
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['user' => new UserResource($user)], 201);
+        }
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'gender' => $request->gender,
+            'birthday' => $request->birthday,
+            'maritalStatus' => $request->maritalStatus,
+            'profession' => $request->profession,
+        ]);
+
+        return response()->json(['user' => new UserResource($user)], 201);
     }
 
-
-    public function login(Request $request)
+    public function login(Request $request): JsonResponse
     {
-        // 
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            $token = $user->createToken('authToken')->plainTextToken;
+
+            return response()->json([
+                'message' => 'Login successful',
+                'token' => $token,
+                'user' => new UserResource($user),
+            ], 200);
+        }
+
+        return response()->json(['error' => 'Invalid credentials'], 401);
     }
 
     public function logout(Request $request)
