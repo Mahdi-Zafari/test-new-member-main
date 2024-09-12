@@ -137,7 +137,7 @@ export default function Home() {
                 </div>
                 <div className="custom-box bg-slate-100">
                     <div className="flex flex-col md:flex-row md:flex-row-reverse items-center">
-                        <div className="w-full md:w-1/3 text-righف">
+                        <div className="w-full md:w-1/3 text-righ">
                             <Img src="/assets/images/img.png" alt="img" />
                         </div>
                         <div className="w-full md:w-2/3 text-center">
