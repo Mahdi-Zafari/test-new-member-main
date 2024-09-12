@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "caption": "Exploring the beautiful city of Istanbul!",
+        "createdAt": "Today, 09:30",
+        "user": {
+            "name": "Emily Davis",
+            "images": [
+                { "url": "https://picsum.photos/121/121" },
+                { "url": "https://picsum.photos/122/122" },
+                { "url": "https://picsum.photos/123/123" }
+            ],
+            "birthday": "1992-04-10",
+            "marital_status": "single",
+            "living_city": "Istanbul"
+        }
+    },
+    {
+        "id": 2,
+        "caption": "Just finished reading an amazing book.",
+        "createdAt": "Today, 11:00",
+        "user": {
+            "name": "Michael Scott",
+            "images": [{ "url": "https://picsum.photos/124/124" }],
+            "birthday": "1988-07-22",
+            "marital_status": "married",
+            "living_city": "Ankara"
+        }
+    },
+    {
+        "id": 3,
+        "caption": "Loving the new recipe I tried today!",
+        "createdAt": "Today, 13:45",
+        "user": {
+            "name": "Sarah Connor",
+            "images": [
+                { "url": "https://picsum.photos/125/125" },
+                { "url": "https://picsum.photos/126/126" }
+            ],
+            "birthday": "1990-12-01",
+            "marital_status": "single",
+            "living_city": "Izmir"
+        }
+    },
+    {
+        "id": 4,
+        "caption": "Had a great workout session this morning.",
+        "createdAt": "Today, 15:20",
+        "user": {
+            "name": "John Doe",
+            "images": [
+                { "url": "https://picsum.photos/127/127" },
+                { "url": "https://picsum.photos/128/128" }
+            ],
+            "birthday": "1985-03-14",
+            "marital_status": "married",
+            "living_city": "Antalya"
+        }
+    },
+    {
+        "id": 5,
+        "caption": "Watching a fantastic sunset by the beach.",
+        "createdAt": "Today, 18:00",
+        "user": {
+            "name": "Olivia Brown",
+            "images": [{ "url": "https://picsum.photos/129/129" }],
+            "birthday": "1995-09-08",
+            "marital_status": "single",
+            "living_city": "Bodrum"
+        }
+    }
+]

@@ -1,0 +1,38 @@
+[
+    {
+      "body": "This is a fantastic blog post!",
+      "createdAt": "Today, 13:45",
+      "user": {
+        "name": "John Doe"
+      }
+    },
+    {
+      "body": "I totally agree with the points made here.",
+      "createdAt": "Today, 1:45",
+      "user": {
+        "name": "Jane Smith"
+      }
+    },
+    {
+      "body": "This blog has some very insightful content.",
+      "createdAt": "Today, 13:00",
+      "user": {
+        "name": "Alice Johnson"
+      }
+    },
+    {
+      "body": "Interesting perspective, thanks for sharing.",
+      "createdAt": "Today, 17:48",
+      "user": {
+        "name": "Bob Brown"
+      }
+    },
+    {
+      "body": "Great read, looking forward to more posts!",
+      "createdAt": "Today, 3:45",
+      "user": {
+        "name": "Charlie Davis"
+      }
+    }
+  ]
+  

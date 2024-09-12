@@ -1,0 +1,116 @@
+[
+    {
+        "id":1,
+        "image": "https://fakeimg.pl/350x200/?text=Story1",
+        "createdAt": "Today 12:00",
+        "user": {
+            "name": "Alice Johnson",
+            "images": [
+                { "url": "https://picsum.photos/101/101" },
+                { "url": "https://picsum.photos/102/102" }
+            ]
+        }
+    },
+    {
+        "id":2,
+        "image": "https://fakeimg.pl/350x200/?text=Story2",
+        "createdAt": "Today 13:00",
+        "user": {
+            "name": "Bob Smith",
+            "images": [{ "url": "https://picsum.photos/103/103" }]
+        }
+    },
+    {
+        "id":3,
+        "image": "https://fakeimg.pl/350x200/?text=Story3",
+        "createdAt": "Today 14:00",
+        "user": {
+            "name": "Charlie Brown",
+            "images": [
+                { "url": "https://picsum.photos/104/104" },
+                { "url": "https://picsum.photos/105/105" },
+                { "url": "https://picsum.photos/106/106" }
+            ]
+        }
+    },
+    {
+        "id":4,
+        "image": "https://fakeimg.pl/350x200/?text=Story4",
+        "createdAt": "Today 15:00",
+        "user": {
+            "name": "David Wilson",
+            "images": [
+                { "url": "https://picsum.photos/107/107" },
+                { "url": "https://picsum.photos/108/108" }
+            ]
+        }
+    },
+    {
+        "id":5,
+        "image": "https://fakeimg.pl/350x200/?text=Story5",
+        "createdAt": "Today 16:00",
+        "user": {
+            "name": "Ella Thompson",
+            "images": [{ "url": "https://picsum.photos/109/109" }]
+        }
+    },
+    {
+        "id":6,
+        "image": "https://fakeimg.pl/350x200/?text=Story6",
+        "createdAt": "Today 17:00",
+        "user": {
+            "name": "Frank White",
+            "images": [
+                { "url": "https://picsum.photos/110/110" },
+                { "url": "https://picsum.photos/111/111" }
+            ]
+        }
+    },
+    {
+        "id":7,
+        "image": "https://fakeimg.pl/350x200/?text=Story7",
+        "createdAt": "Today 18:00",
+        "user": {
+            "name": "Grace Lee",
+            "images": [
+                { "url": "https://picsum.photos/112/112" },
+                { "url": "https://picsum.photos/113/113" },
+                { "url": "https://picsum.photos/114/114" }
+            ]
+        }
+    },
+    {
+        "id":8,
+        "image": "https://fakeimg.pl/350x200/?text=Story8",
+        "createdAt": "Today 19:00",
+        "user": {
+            "name": "Henry Martinez",
+            "images": [{ "url": "https://picsum.photos/115/115" }]
+        }
+    },
+    {
+        "id":9,
+        "image": "https://fakeimg.pl/350x200/?text=Story9",
+        "createdAt": "Today 20:00",
+        "user": {
+            "name": "Isabella Clark",
+            "images": [
+                { "url": "https://picsum.photos/116/116" },
+                { "url": "https://picsum.photos/117/117" },
+                { "url": "https://picsum.photos/118/118" }
+            ]
+        }
+    },
+    {
+        "id":10,
+        "image": "https://fakeimg.pl/350x200/?text=Story10",
+        "createdAt": "Today 21:00",
+        "user": {
+            "name": "Jack Lewis",
+            "images": [
+                { "url": "https://picsum.photos/119/119" },
+                { "url": "https://picsum.photos/120/120" }
+            ]
+        }
+    }
+]

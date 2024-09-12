@@ -1,0 +1,20 @@
+.custom-field{
+    padding: 5px 100px;
+}
+.blog-header{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.564), rgba(0, 0, 0, 0.706)) ,url('http://localhost/assets/blogImages/blogHeadr.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@media (max-width: 768px) {
+    .blog-header{
+        padding: 80px 0px;
+    }
+}
+
+@media (min-width: 769px) {
+    .blog-header{
+        padding: 150px 0px;
+    }
+}

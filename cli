@@ -1,0 +1,131 @@
+#!/bin/bash
+
+cd $(dirname "$0") && command=$1 && shift
+
+sail() {
+    bash vendor/bin/sail "$@"
+}
+
+case $command in
+    install)
+        set -e
+        docker run --rm \
+            -v $(pwd):/app \
+            -w /app \
+            php:8.3-alpine sh -c \
+            "adduser -D -u $(id -u) myuser && \
+            mkdir -p /.composer && \
+            chown myuser:myuser /.composer && \
+            su myuser -c 'curl -sS https://getcomposer.org/installer | php -- --install-dir=/app --filename=composer' && \
+            su myuser -c '/app/composer install --ignore-platform-reqs --no-interaction'"
+        # composer install --ignore-platform-reqs --no-interaction
+        # sudo chown -R $(whoami) ./vendor
+        if [ ! -f ".env" ]; then
+            cp .env.example .env
+        fi
+        # bash $0 run bash -c "npm install && composer install --no-interaction"
+        bash $0 run bash -c "npm install"
+        touch database/database.sqlite
+    ;;
+
+    serve)
+        php artisan serve --host=0.0.0.0 --port=80 & \
+        php artisan reverb:start & \
+        php artisan queue:listen & \
+        npm run dev
+    ;;
+
+    dev)
+        bash $0 up $@
+    ;;
+
+    up)
+        bash $0 install
+        sail up $@
+    ;;
+
+    down)
+        sail down
+    ;;
+
+    shell)
+        sail shell "$@"
+    ;;
+
+    run)
+        sail run --rm laravel.test "$@"
+    ;;
+
+    test)
+        set -e
+        # sail run --rm \
+        # -e DB_CONNECTION=sqlite \
+        # laravel.test /bin/bash -c "
+        # php artisan migrate:fresh --seed --force
+        # ./cli serve &
+        # php artisan test --parallel
+        # npx vitest --run"
+        case "$1" in
+            --api)
+                sail run --rm \
+                laravel.test /bin/bash -c "
+                php artisan test --parallel"
+                ;;
+            --ui)
+                sail run --rm \
+                laravel.test \
+                /bin/bash -c "
+                cp .env.example .env
+                sed -i '/^DB_CONNECTION=/c\DB_CONNECTION=sqlite' .env
+                sed -i '/^DB_DATABASE=/c\DB_DATABASE=/var/www/html/database/database.sqlite' .env
+                touch /var/www/html/database/database.sqlite
+                php artisan migrate:fresh --seed --force
+                ./cli serve &
+                npx vitest --run"
+                ;;
+            *)
+                bash $0 test --api
+                bash $0 test --ui
+                ;;
+        esac
+    ;;
+
+    seed)
+        bash $0 run php artisan migrate:fresh --seed $@
+    ;;
+
+    build)
+        docker build -t diseec/dev-5 -f docker/Dockerfile.preview .
+        docker push diseec/dev-5
+    ;;
+
+    deploy)
+        set -e
+        git checkout preview
+        git merge origin/main
+        git push origin preview
+    ;;
+
+    --help|-h)
+        echo "Usage: $0 [command]"
+        echo "Commands:"
+        echo "  install        Install the dependencies"
+        echo "  serve          Start the servers"
+        echo "  dev            Alias for up"
+        echo "  up             Start the services"
+        echo "  down           Stop the services"
+        echo "  run            Run a command in fresh instance"
+        echo "  shell          Start the shell"
+        echo "  test           Run the tests"
+        echo "  seed           Seed the database"
+        echo "  build          Build the images and menifests then push to registry"
+        echo "  deploy         Deploy the preview"
+        exit 0
+    ;;
+
+    *)
+        echo "Unknown command: $command"
+        bash $0 --help
+        exit 1
+
+esac

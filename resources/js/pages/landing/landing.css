@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.landing-bg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.input-field {
+    padding: 5px 120px 5px 5px;
+    @apply rounded block mt-5 w-full md:w-auto;
+}
+.form-seceltion {
+    padding: 5px 190px 5px 5px;
+}
+
+.input-btn {
+    padding: 5px 90px;
+    @apply w-full md:w-auto;
+}
+.container-custom {
+    @apply container mx-auto px-5 pt-5 flex justify-between items-center;
+}
+.title-custom {
+    @apply text-pink-600 font-medium text-2xl;
+}
+.custom-box {
+    @apply bg-slate-100 mx-10 md:mx-40 mt-20 rounded-md px-5 py-3;
+}
+.custom-gradient-box {
+    background-image: linear-gradient(to top, #e72a7f, rgb(213, 74, 255));
+}
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+}
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}

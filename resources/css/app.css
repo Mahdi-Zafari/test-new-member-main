@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* Text field */
+    .text-field {
+        @apply w-full py-3 px-4 rounded-xl border border-gray-100 bg-gray-50 hover:border-gray-300 focus:border-gray-300 transition-all duration-300 ease-out focus:shadow-lg mt-2 outline-none;
+    }
+
+    /* Select */
+    .select {
+        @apply w-full py-3 px-4 rounded-xl text-slate-800 border border-gray-100 bg-gray-200 hover:border-gray-300 focus:border-gray-300 transition-all duration-300 ease-out outline-none;
+    }
+
+    /* Buttons */
+    .btn {
+        @apply rounded-lg flex gap-1 px-2 py-1 items-center transition-all duration-300;
+    }
+
+    .btn-icon-only {
+        @apply size-7 rounded-lg grid place-items-center transition-all duration-300;
+    }
+}
+
+/* Table styles */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+table td,
+table th {
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+    text-align: center;
+}
+
+table th {
+    padding: 0.8rem;
+    color: #4b5559;
+    font-size: 0.9rem;
+}
+
+table td {
+    font-size: 0.85rem;
+    padding: 0.8rem 1.5rem;
+    color: #4b5559;
+}
