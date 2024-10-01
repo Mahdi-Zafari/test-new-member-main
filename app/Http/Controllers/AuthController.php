@@ -34,11 +34,13 @@ class AuthController extends Controller
             'birthday' => 'required|date',
             'maritalStatus' => 'required|string',
             'profession' => 'required|string',
-            //
+            'city' => 'nullable|string|max:255',
+            'country' => 'nullable|string|max:255',
+            'hijab' => 'nullable|string|in:Yes,No',
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['user' => new UserResource($user)], 201);
+            return response()->json(['errors' => $validator->errors()], 422);
         }
 
         $user = User::create([
@@ -49,6 +51,9 @@ class AuthController extends Controller
             'birthday' => $request->birthday,
             'maritalStatus' => $request->maritalStatus,
             'profession' => $request->profession,
+            'city' => $request->city,
+            'country' => $request->country,
+            'hijab' => $request->hijab,
         ]);
 
         return response()->json(['user' => new UserResource($user)], 201);
